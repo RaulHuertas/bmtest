@@ -1,5 +1,6 @@
 #include "bookingservice.hpp"
 #include <QMutexLocker>
+#include <QDebug>
 
 
 BookingService::BookingService(QObject *parent)
@@ -137,6 +138,22 @@ void BookingService::service(
     stefanfrings::HttpRequest& request,
     stefanfrings::HttpResponse& response
 ){
+    QByteArray path=request.getPath();
+    qDebug("RequestMapper: path=%s",path.data());
+    if ( path=="/getMovies") {
+        getMovies(request, response);
+    }else if (path=="/getAvailableTheatersMovie") {
+        getAvailableTheatersMovie(request, response);
+    }else if (path=="/getAvailableSeatsForMovie") {
+        getAvailableSeatsForMovie(request, response);
+    }else if (path=="/stefanfrings") {
+        reserverSeats(request, response);
+    }else {
+        response.setStatus(404,"Not found");
+        response.write("The URL is wrong, no such document.",true);
+    }
+
+    qDebug("RequestMapper: finished request");
 
 }
 
