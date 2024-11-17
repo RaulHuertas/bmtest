@@ -2,6 +2,7 @@
 #define MOVIE_HPP
 
 #include <QString>
+#include "theater.hpp"
 
 namespace beamtrail {
 
@@ -23,6 +24,10 @@ public:
     }
 
     void setName(const QString& newName);
+
+    std::vector<beamtrail::Theater> theaters;
+
+
 };
 
 };

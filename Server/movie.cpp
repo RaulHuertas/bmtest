@@ -16,6 +16,3 @@ void Movie::setName(const QString& newName){
 
 
 
-
-
-

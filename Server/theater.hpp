@@ -2,8 +2,8 @@
 #define THEATER_H
 
 #include <vector>
+#include <QString>
 #include "seat.hpp"
-#include "movie.hpp"
 
 namespace beamtrail {
 
@@ -11,19 +11,21 @@ class Theater
 {
 
 private:
+
+
     std::vector<beamtrail::Seat> seats;
-    std::vector<beamtrail::Movie> movies;
+
 public:
-    Theater(int seatsNumber = 20);
+    QString name;
+    Theater();
 
-    void setMovies(const std::vector<QString>& movieNames);
-
+    void setNumberOfSeats(int n);
     int nTotalSeats()const;
     int nAvailableSeats()const;
     int nOccupiedSeats()const;
 
     std::vector<int> availableSeats()const;
-    void occupy(std::vector<int> seatNumbers);
+    bool occupy(std::vector<int> seatNumbers);
 
 };
 

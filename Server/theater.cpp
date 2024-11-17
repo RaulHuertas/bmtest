@@ -2,22 +2,16 @@
 
 using namespace beamtrail;
 
-Theater::Theater(int seatsNumber) {
-    this->seats.resize(seatsNumber);
+Theater::Theater() {
 
 }
 
-void Theater::setMovies(
-    const std::vector<QString>& movieNames
-){
-    this->movies.resize(movieNames.size());
-    for(int j=0; j<movieNames.size();j++){
-        movies[j].setName( movieNames[j] );
-    }
+void Theater::setNumberOfSeats(int n){
+    return seats.resize(n);
 }
 
 int Theater::nTotalSeats()const{
-    return seats.size();
+    return (int)seats.size();
 }
 
 int Theater::nAvailableSeats()const{
@@ -49,13 +43,28 @@ std::vector<int> Theater::availableSeats() const{
     return result;
 }
 
-void Theater::occupy(std::vector<int> seatNumbers){
+bool Theater::occupy(std::vector<int> seatNumbers){
+    //First check that all seats are actually available
+    for(auto& requestedIndex : seatNumbers){
+        if(requestedIndex<0){
+            return false;//invalid index
+        }
+        if(requestedIndex>seats.size()){
+            return false;//wrong index
+        }
+
+        if (seats[requestedIndex].occupied()){
+            return false;//seat already occupied
+        }
+    }
+    //Do the actual operation
     for(auto& number : seatNumbers){
         if(seats.size()<number){
             continue;
         }
         seats[number].setOccupied();
     }
+    return true;
 }
 
 

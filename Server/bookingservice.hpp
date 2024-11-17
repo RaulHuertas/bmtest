@@ -3,9 +3,7 @@
 
 #include <QObject>
 #include <httprequesthandler.h>
-
-#include "httprequesthandler.h"
-
+#include "movie.hpp"
 
 class BookingService : public stefanfrings::HttpRequestHandler
 {
@@ -13,13 +11,48 @@ class BookingService : public stefanfrings::HttpRequestHandler
 
 public:
 
-
     explicit BookingService(QObject* parent=nullptr);
 
     ~BookingService();
 
+    void service(
+        stefanfrings::HttpRequest& request,
+        stefanfrings::HttpResponse& response
+    );
 
-    void service(HttpRequest& request, HttpResponse& response);
+    void setMovies(const std::vector<QString>& movieNames);
+
+    //Methods available in the API
+    std::vector<QString> getMovies();
+    std::vector<int> getAvailableTheatersMovie(int movieID);//ID is actuallly just the index
+    std::vector<int> getAvailableSeatsForMovie(int movieID, int theaterID);//ID is actuallly just the index
+    bool reserverSeats(int movieID, int theaterID, std::vector<int> requestedSeats);
+
+    //HTTP implementation
+    void getMovies(
+        stefanfrings::HttpRequest& request,
+        stefanfrings::HttpResponse& response
+    );
+    void getAvailableTheatersMovie(
+        stefanfrings::HttpRequest& request,
+        stefanfrings::HttpResponse& response
+    );
+    void getAvailableSeatsForMovie(
+        stefanfrings::HttpRequest& request,
+        stefanfrings::HttpResponse& response
+    );
+    void reserverSeats(
+        stefanfrings::HttpRequest& request,
+        stefanfrings::HttpResponse& response
+    );
+
+    void setTheaters(
+        int movieIndex,
+        const std::vector<QString>& theaterNames
+    );
+
+private:
+    std::vector<beamtrail::Movie> movies;
 
 };
 
