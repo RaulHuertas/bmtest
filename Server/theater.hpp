@@ -13,9 +13,10 @@ class Theater
 private:
 
 
-    std::vector<beamtrail::Seat> seats;
+
 
 public:
+    std::vector<beamtrail::Seat> seats;
     QString name;
     Theater();
 

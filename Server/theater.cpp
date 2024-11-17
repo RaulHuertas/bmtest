@@ -49,7 +49,7 @@ bool Theater::occupy(std::vector<int> seatNumbers){
         if(requestedIndex<0){
             return false;//invalid index
         }
-        if(requestedIndex>seats.size()){
+        if(requestedIndex>=seats.size()){
             return false;//wrong index
         }
 
@@ -59,7 +59,7 @@ bool Theater::occupy(std::vector<int> seatNumbers){
     }
     //Do the actual operation
     for(auto& number : seatNumbers){
-        if(seats.size()<number){
+        if(seats.size()<=number){
             continue;
         }
         seats[number].setOccupied();

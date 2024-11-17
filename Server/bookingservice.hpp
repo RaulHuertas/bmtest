@@ -4,7 +4,7 @@
 #include <QObject>
 #include <httprequesthandler.h>
 #include "movie.hpp"
-
+#include <QMutex>
 class BookingService : public stefanfrings::HttpRequestHandler
 {
     Q_OBJECT
@@ -24,9 +24,9 @@ public:
 
     //Methods available in the API
     std::vector<QString> getMovies();
-    std::vector<int> getAvailableTheatersMovie(int movieID);//ID is actuallly just the index
+    std::vector<QString> getAvailableTheatersMovie(int movieID);//ID is actuallly just the index
     std::vector<int> getAvailableSeatsForMovie(int movieID, int theaterID);//ID is actuallly just the index
-    bool reserverSeats(int movieID, int theaterID, std::vector<int> requestedSeats);
+    bool bookSeats(int movieID, int theaterID, std::vector<int> requestedSeats);
 
     //HTTP implementation
     void getMovies(
@@ -53,6 +53,7 @@ public:
 
 private:
     std::vector<beamtrail::Movie> movies;
+    QMutex mux;
 
 };
 
