@@ -78,6 +78,8 @@ std::vector<QString> BookingService::getAvailableTheatersMovie(int movieID){
         return result;
     }
 
+    result.resize(movies[movieID].theaters.size());
+
     for(int t = 0; t<movies[movieID].theaters.size();t++){
         result[t] = movies[movieID].theaters[t].name;
     }
