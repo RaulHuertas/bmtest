@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "5b3c64d3-3fe4-4217-9c0e-448221dd1191",
+		"name": "Beamtrail",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37409180"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/getMovies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/getMovies",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getMovies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/getAvailableTheatersMovie?movieIndex=0",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/getAvailableTheatersMovie?movieIndex=",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getAvailableTheatersMovie"
+					],
+					"query": [
+						{
+							"key": "movieIndex",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/getAvailableSeatsForMovie?movieIndex=0&theaterIndex=0",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/getAvailableSeatsForMovie?movieIndex=4&theaterIndex=0",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getAvailableSeatsForMovie"
+					],
+					"query": [
+						{
+							"key": "movieIndex",
+							"value": "4"
+						},
+						{
+							"key": "theaterIndex",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/bookSeats?movieIndex=4&theaterIndex=0&seat1=0&seat2=3&seat3=5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/bookSeats?movieIndex=4&theaterIndex=0&seat1=1&seat2=19",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bookSeats"
+					],
+					"query": [
+						{
+							"key": "movieIndex",
+							"value": "4"
+						},
+						{
+							"key": "theaterIndex",
+							"value": "0"
+						},
+						{
+							"key": "seat1",
+							"value": "1"
+						},
+						{
+							"key": "seat2",
+							"value": "19"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
