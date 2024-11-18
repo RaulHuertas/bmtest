@@ -41,7 +41,7 @@ public:
         stefanfrings::HttpRequest& request,
         stefanfrings::HttpResponse& response
     );
-    void reserverSeats(
+    void bookSeats(
         stefanfrings::HttpRequest& request,
         stefanfrings::HttpResponse& response
     );

@@ -148,8 +148,8 @@ void BookingService::service(
         getAvailableTheatersMovie(request, response);
     }else if (path=="/getAvailableSeatsForMovie") {
         getAvailableSeatsForMovie(request, response);
-    }else if (path=="/stefanfrings") {
-        reserverSeats(request, response);
+    }else if (path=="/bookSeats") {
+        bookSeats(request, response);
     }else {
         response.setStatus(404,"Not found");
         response.write("The URL is wrong, no such document.",true);
