@@ -10,6 +10,11 @@ This is the code for the server. Classes 'Movie', 'Seat' and  'Theather' encapsu
 Class 'BookingService' adapts the previous clases to the HTTP API.
 
 
+# Running the program
+Open Qt creator and build the project. It doesn't have dependencies outside of the repo.
+Then go to the left panel: Project>Build&Run.   In 'Working Directory', select the folder 
+'workdir' of this repo. There is a webapp.ini, where the listening PORT is set.
+
 
 # Testing
 
